@@ -1,8 +1,8 @@
 package utils
 
 import (
-	"apis"
-	"config"
+	"ysirotenko.com/thespacedevs-cmd/apis"
+	"ysirotenko.com/thespacedevs-cmd/config"
 )
 
 func Init() apis.LaunchUpcoming {
