@@ -10,6 +10,11 @@ import (
 	"net/http"
 )
 
+const (
+	FormatBold = "\033[1m"
+	FormatReset = "\033[0m"
+)
+
 func LaunchesCommand(page *int) {
 	launchApi := utils.Init()
 	launchApi.Page = *page * 10
@@ -33,6 +38,11 @@ func LaunchesCommand(page *int) {
  	// todo err
  	
  	for _, entity := range structmy.Results {
- 		fmt.Printf("ID: %v\nName: %v\nDate:%v\nStatus: %v\nStatus Description: %v\n\n", entity.Id, entity.Name, entity.Date, entity.Status.Name, entity.Status.Description)
+ 		fmt.Printf("%vID:%v %v\n", FormatBold, FormatReset, entity.Id)
+ 		fmt.Printf("%vName:%v %v\n", FormatBold, FormatReset, entity.Name)
+ 		fmt.Printf("%vDate:%v %v\n", FormatBold, FormatReset, entity.Date)
+ 		fmt.Printf("%vStatus:%v %v\n", FormatBold, FormatReset, entity.Status.Name)
+ 		fmt.Printf("%vDescription:%v %v\n", FormatBold, FormatReset, entity.Status.Description)
+ 		fmt.Printf("*------------------*\n\n")
  	}
 }
