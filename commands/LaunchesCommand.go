@@ -1,7 +1,6 @@
 package commands
 
 import (
-	"ysirotenko.com/thespacedevs-cmd/utils"
 	"strconv"
 	"io/ioutil"
 	"ysirotenko.com/thespacedevs-cmd/apis"
@@ -16,10 +15,10 @@ const (
 )
 
 func LaunchesCommand(page *int) {
-	launchApi := utils.Init()
-	launchApi.Page = *page * 10
-	params := "?offset=" + strconv.Itoa(launchApi.Page)
- 	response, _ := http.Get(launchApi.Domain + launchApi.Ver + launchApi.Url + params)
+	command := apis.GetLaunchUpcomingRequest()
+	command.Page = *page * 10
+	params := "?offset=" + strconv.Itoa(command.Page)
+ 	response, _ := http.Get(command.Domain + command.Ver + command.Url + params)
  	defer response.Body.Close()
  	// todo err
  	// todo status code
