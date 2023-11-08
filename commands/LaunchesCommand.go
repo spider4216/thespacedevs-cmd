@@ -47,7 +47,8 @@ func LaunchesCommand(page *int) (string, error) {
  		result += fmt.Sprintf("%vName:%v %v\n", FormatBold, FormatReset, entity.Name)
  		result += fmt.Sprintf("%vDate:%v %v\n", FormatBold, FormatReset, entity.Date)
  		result += fmt.Sprintf("%vStatus:%v %v\n", FormatBold, FormatReset, entity.Status.Name)
- 		result += fmt.Sprintf("%vDescription:%v %v\n", FormatBold, FormatReset, entity.Status.Description)
+ 		result += fmt.Sprintf("%vStatus description:%v %v\n", FormatBold, FormatReset, entity.Status.Description)
+ 		result += fmt.Sprintf("%vAbout mission:%v %v\n", FormatBold, FormatReset, entity.Mission.Description)
  		result += fmt.Sprintf("*------------------*\n\n")
  	}
  	
