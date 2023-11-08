@@ -32,13 +32,14 @@ func LaunchDetailCommand(id *string) (string, error) {
  		return result, errJson
  	}
 
-	result += fmt.Sprintf("%vID:%v %v\n\n", FormatBold, FormatReset, entity.Name)
-	result += fmt.Sprintf("=== UPDATES ===")
+	result += fmt.Sprintf("%vDescription%v\n%v\n\n", FormatBold, FormatReset, entity.Mission.Description)
+	
+	result += fmt.Sprintf("%vUPDATES%v\n\n", FormatBold, FormatReset)
 	
 	for _, update := range entity.Updates {
-		result += fmt.Sprintf("\n%vDate:%v %v\n", FormatBold, FormatReset, update.Date)
+		result += fmt.Sprintf("%vDate:%v %v\n", FormatBold, FormatReset, update.Date)
 		result += fmt.Sprintf("%vComment:%v %v\n", FormatBold, FormatReset, update.Comment)
-		result += fmt.Sprintf("%vMore:%v %v\n", FormatBold, FormatReset, update.InfoUrl)
+		result += fmt.Sprintf("%vMore:%v %v\n\n", FormatBold, FormatReset, update.InfoUrl)
 	}
  	
  	return result, nil
