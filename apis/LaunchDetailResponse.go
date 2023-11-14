@@ -14,4 +14,5 @@ type LaunchDetailUpdate struct {
 
 type LaunchDetailMission struct {
 	Description string `json:"description"`
+	Name string        `json:"name"`
 }
