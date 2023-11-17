@@ -20,6 +20,8 @@ func main() {
 			result, err = commands.LaunchesCommand(page)
 		case "launch_detail":
 			result, err = commands.LaunchDetailCommand(detailId)
+		case "news":
+			result, err = commands.ArticlesCommand(page)
 	}
 	
 	if err != nil {

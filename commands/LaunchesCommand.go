@@ -26,8 +26,7 @@ func LaunchesCommand(page *int) (string, error) {
  	if errHttp != nil {
  		return result, errHttp
  	}
- 	// todo err
- 	// todo status code
+
  	b, errReader := ioutil.ReadAll(response.Body)
  	
  	if errReader != nil {
@@ -40,7 +39,6 @@ func LaunchesCommand(page *int) (string, error) {
  	if errJson != nil {
  		return result, errJson
  	}
- 	// todo err
  	
  	for _, entity := range structmy.Results {
  		result += fmt.Sprintf("%vID:%v %v\n", FormatBold, FormatReset, entity.Id)
