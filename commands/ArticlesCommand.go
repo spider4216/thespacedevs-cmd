@@ -40,7 +40,18 @@ func ArticlesCommand(page *int) (string, error) {
 		result += fmt.Sprintf("%vTitle:%v\n%v\n", FormatBold, FormatReset, entity.Title);
 		result += fmt.Sprintf("%vId:%v\n%v\n", FormatBold, FormatReset, entity.Id);
 		result += fmt.Sprintf("%vPublished:%v\n%v\n", FormatBold, FormatReset, entity.PublishedDate);
-		result += fmt.Sprintf("%vDescription:%v\n%v\n\n", FormatBold, FormatReset, entity.Description);
+		result += fmt.Sprintf("%vDescription:%v\n%v\n", FormatBold, FormatReset, entity.Description);
+		result += fmt.Sprintf("%vMore:%v\n%v\n\n", FormatBold, FormatReset, entity.Url);
+		
+		if len(entity.Launches) > 0 {
+			result += fmt.Sprintf("Launches:\n")
+			for _, launch := range entity.Launches {
+				result += fmt.Sprintf("%vLaunch Id:%v\n%v\n", FormatBold, FormatReset, launch.Id)
+			}
+			result += fmt.Sprintf("\n")
+		}
+		
+		result += fmt.Sprintf("------------------\n\n")
 	}
 	
 	return result, nil;
